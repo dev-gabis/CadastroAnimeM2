@@ -1,13 +1,13 @@
 body {
     font-family: sans-serif;
-    background-color: #eeeeee;
+    background-color: #e4e4e4;
     margin: 0;
     padding: 20px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #ff4500;
     margin-top: 20px;
 }
 
@@ -68,11 +68,12 @@ input[type="file"] {
 
 button {
     padding: 10px 20px;
-    background-color: #ff6347;
+    background-color: #797979;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -116,7 +117,7 @@ a{
 }
 
 .edit-btn, .delete-btn {
-    background-color: #ff6347;
+    background-color: #797979;
     color: white;
     border: none;
     padding: 5px 10px;

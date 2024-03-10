@@ -130,15 +130,6 @@ function downloadAnimeList() {
     
     URL.revokeObjectURL(url);
 }
-// Função para redirecionar para a página de Lista de Animes
-function viewAnimeList() {
-    window.location.href = 'lista_animes.html';
-}
-
-// Função para redirecionar para a página de Novo Cadastro
-function newAnimeForm() {
-    window.location.href = 'index.html';
-}
 
 function saveAnimeData(name, genre, year, episodes, status, link, image) {
     const animeData = {
@@ -179,7 +170,7 @@ function loadAnimeData() {
 }
 
 // Carregar os dados do anime ao recarregar a página
-loadAnimeData();
+window.addEventListener('load', loadAnimeData);
 
 // Exemplo de função para cadastro de animes
 document.getElementById('anime-form').addEventListener('submit', function(event) {
