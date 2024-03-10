@@ -7,16 +7,35 @@
     <link rel="stylesheet" href="anime.css">
 </head>
 <body>
-    <h1>Cadastro de Animes</h1>
-
-    <div id="anime-list"></div>
-
     <form id="anime-form">
+        <h1>Cadastro de Animes</h1>
         <input type="text" id="anime-name" placeholder="Nome do Anime" required>
-        <input type="text" id="anime-genre" placeholder="Gênero do Anime" required>
+        <input style="align-items: center;" type="file" id="anime-image" accept="image/*">
+        <select id="anime-genre" required>
+            <option value="" disabled selected>Selecione o Gênero</option>
+            <option value="Ação">Ação</option>
+            <option value="Aventura">Aventura</option>
+            <option value="Comédia">Comédia</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasia">Fantasia</option>
+            <option value="Ficção Científica">Ficção Científica</option>
+            <option value="Romance">Romance</option>
+            <option value="Terror">Terror</option>
+            <option value="Slice of Life">Slice of Life</option>
+            <!-- Adicione mais opções de gênero conforme necessário -->
+        </select>
+        <input type="number" id="anime-year" placeholder="Ano de Lançamento">
+        <input type="number" id="anime-episodes" placeholder="Número de Episódios">
+        <select id="anime-status">
+            <option value="" disabled selected>Status do Anime</option>
+            <option value="Em Andamento">Em Andamento</option>
+            <option value="Completo">Completo</option>
+        </select>
+        <input type="url" id="anime-link" placeholder="Link para Assistir">
         <button type="submit">Cadastrar</button>
     </form>
 
-    <script src="scripts.js"></script>
+    <div id="anime-list"></div>
+    <script src="anime.js"></script>
 </body>
 </html>

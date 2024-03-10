@@ -1,8 +1,8 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
+    font-family: sans-serif;
+    background-color: #eeeeee;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 h1 {
@@ -11,32 +11,77 @@ h1 {
     margin-top: 20px;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
+header {
+    background-color: #333;
+    color: #fff;
 }
 
-input {
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 2px #ff4500;
+}
+
+input, select, textarea {
     padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 10px; 
+    border: 1px solid #ff4500;
+    width: calc(100% - 22px);
+    border-radius: 10px;
+}
+
+input[type="file"] {
+    margin-bottom: 10px; 
 }
 
 button {
     padding: 10px 20px;
-    background-color: #ff4500;
+    background-color: #ff6347;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button:hover {
-    background-color: #ff6347;
+    background-color: #ff4500;
 }
 
+a{
+    color: #ff4500;
+}
 #anime-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -44,27 +89,40 @@ button:hover {
 }
 
 .anime-card {
+    box-shadow: 0 2px 4px 2px #ff4500;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
 }
 
 .anime-card h3 {
-    color: #333;
+    color: #ffffff;
+    text-align: center;
+    background-color: #ff4500;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .anime-card p {
     color: #666;
 }
 
+.anime-card img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+    height: auto; 
+    border-radius: 20px;
+}
+
 .edit-btn, .delete-btn {
-    background-color: #333;
+    background-color: #ff6347;
     color: white;
     border: none;
     padding: 5px 10px;
-    margin-top: 5px;
 }
 
 .edit-btn:hover, .delete-btn:hover {
-    background-color: #555;
+    background-color: #ff4500;
 }
+
