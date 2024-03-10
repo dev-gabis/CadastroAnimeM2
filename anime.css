@@ -67,6 +67,7 @@ input[type="file"] {
 }
 
 button {
+    font-size: 15px;
     padding: 10px 20px;
     background-color: #797979;
     color: white;
@@ -111,7 +112,10 @@ a{
 .anime-card img {
     margin-top: 10px;
     margin-bottom: 10px;
-    max-width: 100%;
+    width:90%;
+    margin: auto;
+    display: block;
+
     height: auto; 
     border-radius: 20px;
 }

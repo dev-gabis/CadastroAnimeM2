@@ -72,7 +72,7 @@ function displayAnimeList() {
         const div = document.createElement('div');
         div.classList.add('anime-card');
         div.innerHTML = `<h3>${anime.name}</h3>
-                        <img src="${anime.image}" alt="${anime.name} Image">
+                        <p><img src="${anime.image}" alt="${anime.name} Image"></p>
                          <p>Gênero: ${anime.genre}</p>
                          <p>Ano de Lançamento: ${anime.year}</p>
                          <p>Número de Episódios: ${anime.episodes}</p>
@@ -86,26 +86,65 @@ function displayAnimeList() {
 }
 
 function editAnime(index) {
-    const newName = prompt('Novo nome do anime:', animeList[index].name);
-    const newGenre = prompt('Novo gênero do anime:', animeList[index].genre);
-    const newYear = prompt('Novo ano de lançamento:', animeList[index].year);
-    const newEpisodes = prompt('Novo número de episódios:', animeList[index].episodes);
-    const newStatus = prompt('Novo status do anime:', animeList[index].status);
-    const newLink = prompt('Novo link para assistir:', animeList[index].link);
+    const animeCard = document.getElementsByClassName('anime-card')[index];
+    const anime = animeList[index];
 
-    if (newName && newGenre && newYear && newEpisodes && newStatus && newLink) {
-        animeList[index].name = newName;
-        animeList[index].genre = newGenre;
-        animeList[index].year = newYear;
-        animeList[index].episodes = newEpisodes;
-        animeList[index].status = newStatus;
-        animeList[index].link = newLink;
+    const form = document.createElement('form');
+    form.innerHTML = `
+        <label for="edit-anime-name">Nome:</label>
+        <input type="text" id="edit-anime-name" value="${anime.name}" required>
+        
+        <label for="edit-anime-image">Nova Imagem:</label>
+        <input type="file" id="edit-anime-image" accept="image/*">
+        
+        <label for="edit-anime-genre">Gênero:</label>
+        <input type="text" id="edit-anime-genre" value="${anime.genre}" required>
+        
+        <label for="edit-anime-year">Ano de Lançamento:</label>
+        <input type="number" id="edit-anime-year" value="${anime.year}" required>
+        
+        <label for="edit-anime-episodes">Número de Episódios:</label>
+        <input type="number" id="edit-anime-episodes" value="${anime.episodes}" required>
+        
+        <label for="edit-anime-status">Status:</label>
+        <select id="edit-anime-status">
+            <option value="Em andamento" ${anime.status === 'Em andamento' ? 'selected' : ''}>Em andamento</option>
+            <option value="Concluído" ${anime.status === 'Concluído' ? 'selected' : ''}>Concluído</option>
+        </select>
+        
+        <label for="edit-anime-link">Link para assistir:</label>
+        <input type="url" id="edit-anime-link" value="${anime.link}" required>
+        
+        <button type="submit">Salvar</button>
+        <button type="button" onclick="cancelEdit(${index})">Cancelar</button>
+    `;
 
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        anime.name = document.getElementById('edit-anime-name').value;
+        const newImageInput = document.getElementById('edit-anime-image');
+        if (newImageInput.files.length > 0) {
+            anime.image = URL.createObjectURL(newImageInput.files[0]);
+        }
+        anime.genre = document.getElementById('edit-anime-genre').value;
+        anime.year = document.getElementById('edit-anime-year').value;
+        anime.episodes = document.getElementById('edit-anime-episodes').value;
+        anime.status = document.getElementById('edit-anime-status').value;
+        anime.link = document.getElementById('edit-anime-link').value;
+
+      
         saveAnimeList();
         displayAnimeList();
-    } else {
-        alert('Por favor, preencha todos os campos obrigatórios.');
-    }
+    });
+
+    // Substitui o conteúdo do card pelo formulário de edição
+    animeCard.innerHTML = '';
+    animeCard.appendChild(form);
+}
+
+function cancelEdit(index) {
+    displayAnimeList(); // Recarrega o card original sem salvar as alterações
 }
 
 function deleteAnime(index) {
