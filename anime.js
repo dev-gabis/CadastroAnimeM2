@@ -140,3 +140,53 @@ function newAnimeForm() {
     window.location.href = 'index.html';
 }
 
+function saveAnimeData(name, genre, year, episodes, status, link, image) {
+    const animeData = {
+        name: name,
+        genre: genre,
+        year: year,
+        episodes: episodes,
+        status: status,
+        link: link,
+        image: image
+    };
+    
+    localStorage.setItem('animeData', JSON.stringify(animeData));
+}
+
+// Função para carregar os dados do anime do armazenamento local
+function loadAnimeData() {
+    const storedAnimeData = localStorage.getItem('animeData');
+    
+    if (storedAnimeData) {
+        const animeData = JSON.parse(storedAnimeData);
+        
+        document.getElementById('anime-name').value = animeData.name;
+        document.getElementById('anime-genre').value = animeData.genre;
+        document.getElementById('anime-year').value = animeData.year;
+        document.getElementById('anime-episodes').value = animeData.episodes;
+        document.getElementById('anime-status').value = animeData.status;
+        document.getElementById('anime-link').value = animeData.link;
+        
+        // Exibir a imagem do anime
+        if (animeData.image) {
+            const imgElement = document.createElement('img');
+            imgElement.src = animeData.image;
+            imgElement.style.maxWidth = '100px'; // Ajuste o tamanho conforme necessário
+            document.getElementById('anime-form').appendChild(imgElement);
+        }
+    }
+}
+
+// Carregar os dados do anime ao recarregar a página
+loadAnimeData();
+
+// Exemplo de função para cadastro de animes
+document.getElementById('anime-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Obter os dados do formulário e realizar o cadastro
+    
+    // Salvar os dados do anime no armazenamento local
+    saveAnimeData(name, genre, year, episodes, status, link, image);
+});
