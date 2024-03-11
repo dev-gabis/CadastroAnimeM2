@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="anime.css">
 </head>
 <body>
+    <a href="#anime-list">Ir para lista de animes</a>
     <form id="anime-form">
         <h1>Cadastro de Animes 🌻</h1>
         <h3>Registre os teus animes favoritos aqui. 🌟</h3>
         <input type="text" id="anime-name" placeholder="Nome do Anime" required>
-        <input type="file" id="upload-image" accept="image/*">
+        <input style="align-items: center;" type="file" id="anime-image" accept="image/*">
         <select id="anime-genre" required>
             <option value="" disabled selected>Selecione o Gênero</option>
             <option value="Ação">Ação</option>
@@ -34,7 +35,6 @@
         </select>
         <input type="url" id="anime-link" placeholder="Link para Assistir">
         <button type="submit">Cadastrar</button>
-        <a href="#anime-list">Ir para lista de animes</a>
     </form>
 
     <div id="anime-list"></div>
