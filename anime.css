@@ -115,16 +115,18 @@ a{
     width:90%;
     margin: auto;
     display: block;
-
     height: auto; 
     border-radius: 20px;
 }
+
 
 .edit-btn, .delete-btn {
     background-color: #797979;
     color: white;
     border: none;
     padding: 5px 10px;
+    text-align: center;
+    
 }
 
 .edit-btn:hover, .delete-btn:hover {

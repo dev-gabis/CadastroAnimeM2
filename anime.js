@@ -78,12 +78,14 @@ function displayAnimeList() {
                          <p>Número de Episódios: ${anime.episodes}</p>
                          <p>Status: ${anime.status}</p>
                          <p><a href="${anime.link}" target="_blank">Assistir aqui</a></p>
-                         <button class="edit-btn" onclick="editAnime(${index})">Editar</button>
-                         <button class="delete-btn" onclick="deleteAnime(${index})">Deletar</button>`;
+                         <div class="card-button"><button class="edit-btn" onclick="editAnime(${index})">Editar</button>
+                         <button class="delete-btn" onclick="deleteAnime(${index})">Deletar</button>
+                         </div>`;
         
         animeListContainer.appendChild(div);
     });
 }
+
 
 function editAnime(index) {
     const animeCard = document.getElementsByClassName('anime-card')[index];
